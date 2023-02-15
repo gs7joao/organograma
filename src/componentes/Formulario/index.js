@@ -4,27 +4,21 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import Botao from '../Botao';
 
-const Formulario = () => {
-
-    const times = [
-        'FullStack',
-        'Front-End',
-        'Back-End',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
+const Formulario = (props) => {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('https://github.com/gs7joao.png')
+    const [time, setTime] = useState('');
 
     const Salvando = (event) => {
         event.preventDefault();
-        console.log("form foi submetido");
-        console.log("Nome", nome);
-        console.log("Cargo", cargo);
-        console.log("Url Img", imagem);
+        props.colaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        });
     }
 
     return (
@@ -54,7 +48,9 @@ const Formulario = () => {
                 <ListaSuspensa 
                     obrigatorio={true} 
                     label="Time" 
-                    itens={times}
+                    itens={props.times}
+                    valor={time}
+                    alterado={valor => setTime(valor)}
                 />
                 <Botao>
                     Criar Card

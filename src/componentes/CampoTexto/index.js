@@ -1,7 +1,6 @@
 import "./index.css"
 
 const CampoTexto = (props) => {
-    console.log(props)
     const digitando = (event) => {
         props.alterado(event.target.value)
     }
