@@ -8,7 +8,7 @@ const Formulario = (props) => {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
-    const [imagem, setImagem] = useState('https://github.com/gs7joao.png')
+    const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('');
 
     const Salvando = (event) => {
@@ -19,6 +19,14 @@ const Formulario = (props) => {
             imagem,
             time
         });
+        limpaCamposFormulario();
+    }
+
+    const limpaCamposFormulario = () => {
+        setNome('');
+        setCargo('');
+        setImagem('');
+        setTime('');
     }
 
     return (

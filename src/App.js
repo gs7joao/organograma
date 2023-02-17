@@ -2,11 +2,12 @@ import { useState } from "react";
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from "./componentes/Time";
+import Rodape from "./componentes/Rodape";
 
 function App() {
 
   const times = [{
-      nome: 'FullStack',
+      nome: 'Programação',
       corPrimaria: '#57C278',
       corSecundaria: '#D9F7E9',
     },{
@@ -32,12 +33,11 @@ function App() {
     }
   ]
 
-
   const [colaboradores, setColaboradores] = useState([]);
 
   const novoColaboradorAdicionado = (colaborador) => {
-    // colaborador => setColaboradores()
-    // console.log(colaborador);
+    // Debugger é utilzado para depurar o código.
+    // debugger
     setColaboradores([...colaboradores, colaborador]); // mantem os valores antigos e adiciona os novos
   }
 
@@ -46,8 +46,15 @@ function App() {
         <Banner />
         <Formulario times={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaboradorAdicionado(colaborador)} />
 
-        {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>)}
-
+        {times.map(time => <Time 
+          key={time.nome} 
+          nome={time.nome} 
+          corPrimaria={time.corPrimaria} 
+          corSecundaria={time.corSecundaria}
+          //Realizando um filter no colaboradores Informando que o time do colaborador tem que ser = time da seleção
+          colaboradores={colaboradores.filter(colaborador => colaborador.time == time.nome)} 
+        />)}
+        <Rodape />
 
     </div>
   );
