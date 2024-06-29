@@ -17,11 +17,6 @@
 ![preview](./.github/img3.png)
 
 
-## Tecnologias
-
-[![My Skills](https://skills.thijs.gg/icons?i=react,css,github)](https://skills.thijs.gg)
-
-
 ## Contato
 
 :email: gsjoaopedro7@gmail.com
